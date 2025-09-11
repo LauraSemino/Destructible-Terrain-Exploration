@@ -28,9 +28,9 @@ public class WallBreak : MonoBehaviour
                 if(hit.collider != null)
                 {
                     Debug.Log(hit.ToString());
-                    hit.rigidbody.isKinematic = false;
+                    hit.rigidbody.constraints = RigidbodyConstraints.None;
                     hit.rigidbody.AddForce((hit.point - transform.position).normalized * 4, ForceMode.Impulse);
-
+                    hit.transform.gameObject.GetComponent<WallPieces>().isBroken = true;
                 }
                 
             }
