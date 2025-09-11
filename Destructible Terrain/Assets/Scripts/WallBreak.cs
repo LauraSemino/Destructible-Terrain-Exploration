@@ -2,6 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class WallBreak : MonoBehaviour
 {
@@ -35,6 +36,15 @@ public class WallBreak : MonoBehaviour
             }
            
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.UnloadSceneAsync("wallTest");
+            SceneManager.LoadScene("wallTest", LoadSceneMode.Single);            
+        }
+
+
     }
+
+    
 }
