@@ -7,7 +7,7 @@ public class WallPieces : MonoBehaviour
 {
 
     public bool isBroken;
-    public bool isGrounded;
+    
     public float curStrength;
     public float maxStrength;
     float minAdjacentStrength;
@@ -28,8 +28,7 @@ public class WallPieces : MonoBehaviour
         {
             if (w.name == "Ground" && isBroken == false)
             {             
-                curStrength = 0f;
-                isGrounded = true;
+                curStrength = 0f;             
 
             }
             else if(w.GetComponent<WallPieces>() != null)
@@ -38,13 +37,12 @@ public class WallPieces : MonoBehaviour
                 {
                    minAdjacentStrength = w.GetComponent<WallPieces>().curStrength;
                    curStrength = minAdjacentStrength + 1;
-                }
+                }               
             }
            
+           
         }
-      
-        
-
+         
 
         if (curStrength >= maxStrength)
         { 
